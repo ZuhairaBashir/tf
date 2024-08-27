@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Git checkout'){
             steps {
-                git 'https://github.com/ZuhairaBashir/tf'
+                git 'https://github.com/ZuhairaBashir/jenkins-sp'
             }
         }
 stage('Checkout') {
