@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Terraform Init'){
             steps{
-                 sh '/opt/homebrew/bin/terraform/terraform init'
+                 sh '/opt/homebrew/bin/terraform init'
             }
         }
         stage('Terraform Validate'){
