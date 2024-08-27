@@ -6,23 +6,7 @@ pipeline {
     stages {
         stage('Git checkout'){
             steps {
-                git 'https://github.com/ZuhairaBashir/tf'
-            }
-        }
-stage('Checkout') {
-            steps {
-                // Checkout code from GitHub using the stored credentials
-                checkout([
-                    $class: 'GitSCM',
-                    branches: [[name: '*/main']], 
-                    doGenerateSubmoduleConfigurations: false,
-                    extensions: [],
-                    submoduleCfg: [],
-                    userRemoteConfigs: [[
-                        url: 'https://github.com/ZuhairaBashir/tf.git',
-                        credentialsId: 'terraform'
-                    ]]
-                ])
+                git branch: 'main', url: 'https://github.com/ZuhairaBashir/tf.git'
             }
         }
         stage('azurelogin') {
