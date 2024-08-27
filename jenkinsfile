@@ -45,7 +45,7 @@ pipeline {
                 clientIdVariable: 'ARM_CLIENT_ID',
                 clientSecretVariable: 'ARM_CLIENT_SECRET',
                 tenantIdVariable: 'ARM_TENANT_ID')]){
-                    sh sh '/opt/homebrew/bin/terraform apply -lock=false -auto-approve'
+                    sh '/opt/homebrew/bin/terraform apply -lock=false -auto-approve'
                 }
             }
         }
