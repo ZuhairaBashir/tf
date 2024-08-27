@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Terraform Validate'){
             steps {
-                sh 'opt/homebrew/bin/terraform validate'
+                sh '/opt/homebrew/bin/terraform validate'
             }
         }
         stage('Terraform Plan'){
@@ -33,7 +33,7 @@ pipeline {
                     clientSecretVariable: 'ARM_CLIENT_SECRET',
                     tenantIdVariable: 'ARM_TENANT_ID'
                 )]) {
-                       sh 'opt/homebrew/bin/terraform plan'
+                       sh '/opt/homebrew/bin/terraform plan'
                            }
                  }
         }
