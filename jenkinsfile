@@ -9,6 +9,22 @@ pipeline {
                 git 'https://github.com/ZuhairaBashir/tf'
             }
         }
+stage('Checkout') {
+            steps {
+                // Checkout code from GitHub using the stored credentials
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/main']], 
+                    doGenerateSubmoduleConfigurations: false,
+                    extensions: [],
+                    submoduleCfg: [],
+                    userRemoteConfigs: [[
+                        url: 'https://github.com/ZuhairaBashir/tf.git',
+                        credentialsId: 'terraform'
+                    ]]
+                ])
+            }
+        }
         stage('azurelogin') {
             steps {
                 sh 'az login --service-principal -u $MY_CRED_CLIENT_ID -p $MY_CRED_CLIENT_SECRET -t $MY_CRED_TENANT_ID'
